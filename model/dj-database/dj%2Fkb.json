@@ -1,0 +1,6 @@
+{
+    "djClassName": "com.dashjoin.ai.KnowledgeBase",
+    "name": "kb",
+    "url": "http://aia:8001",
+    "ID": "dj/kb"
+}

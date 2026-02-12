@@ -1,0 +1,7 @@
+{
+    "name": "postgres",
+    "djClassName": "org.dashjoin.service.SQLDatabase",
+    "username": "postgres",
+    "url": "jdbc:postgresql://postgres:5432/postgres",
+    "ID": "dj/postgres"
+}

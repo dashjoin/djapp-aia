@@ -1,0 +1,6 @@
+{
+  'Document': $ls('file:upload').{
+    'tags': ['etl'],
+    'document': [{ 'value': $openText(url, 'BASE_64'), 'name': url }]
+  }
+}

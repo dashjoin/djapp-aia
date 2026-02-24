@@ -1,0 +1,10 @@
+{
+    "djClassName": "com.dashjoin.function.ETL",
+    "ID": "etl",
+    "expressions": {
+        "expression-pointer": "expression.jsonata"
+    },
+    "database": "kb",
+    "oldData": "Ignore",
+    "createSchema": false
+}

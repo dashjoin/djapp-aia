@@ -5,6 +5,7 @@
     "comment": "Gets weather alerts for a given US state",
     "parameters": {
         "state": {
+            "required": true,
             "type": "string",
             "description": "Two letter state abbreviation (CA, NY, etc...)"
         }

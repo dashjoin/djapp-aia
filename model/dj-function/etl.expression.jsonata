@@ -1,6 +1,6 @@
 {
-  'Document': $ls('file:upload').{
+  'Document': [$ls('file:upload')[url != 'file:upload/.gitkeep'].{
     'tags': ['etl'],
     'document': [{ 'value': $openText(url, 'BASE_64'), 'name': url }]
-  }
+  }]
 }

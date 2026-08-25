@@ -1,0 +1,16 @@
+{
+    "djClassName": "com.dashjoin.function.ETL",
+    "ID": "okf",
+    "expressions": {
+        "foreach": "",
+        "expression-pointer": "expression.jsonata"
+    },
+    "createSchema": true,
+    "ignoreErrors": false,
+    "oldData": "Delete All",
+    "database": "postgres",
+    "comment": "Loads an OKF knowledge base",
+    "start": "2026-08-25T14:57:42.427+00:00",
+    "status": "success",
+    "end": "2026-08-25T14:57:42.711+00:00"
+}

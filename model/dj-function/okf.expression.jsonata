@@ -1,0 +1,29 @@
+(
+
+$process := function($url) {
+  (
+    $append(
+      $ls($url)[folder][$not($contains(url, '/.git'))].url.$parse($, $url),
+      $parse($url)
+    )
+  )
+};
+
+$parse := function($url, $prefix) {
+  $ls($url & '/*.md').(
+    $res := $parseFrontmatter($openText(url));
+    $merge([{
+      'id': $substringAfter(url, $prefix ? $prefix : $url),
+      'markdown': $res.markdown,
+      'links': [$match($res.markdown, /\]\(([^\)]+)\)/).groups[$not($contains(':'))]]
+    }, $res.frontmatter])
+  )
+};
+
+$res := $process('file:upload/crm-open-knowledge-wiki');
+{
+  'concept': $res,
+  'tag': $distinct($res.tags).{'id': $},
+  'type': $distinct($res.type).{'id': $}
+}
+)

@@ -26,6 +26,10 @@
                         "baseUrl": "/#/postgres/concept/",
                         "linkIsId": true,
                         "widget": "markdown"
+                    },
+                    {
+                        "nodes": "{'database':database, 'table':table, 'pk':[value.id]}",
+                        "widget": "graph"
                     }
                 ]
             },

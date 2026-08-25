@@ -1,6 +1,7 @@
 {
     "djClassName": "com.dashjoin.function.ETL",
     "ID": "etl",
+    "comment": "Loads all files in the upload folder into the RAG database",
     "expressions": {
         "expression-pointer": "expression.jsonata"
     },

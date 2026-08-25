@@ -1,4 +1,5 @@
 {
     "ID": "aia",
-    "djClassName": "com.dashjoin.ai.AIApp"
+    "djClassName": "com.dashjoin.ai.AIApp",
+    "comment": "AI Application for chat, MCP, and RAG"
 }

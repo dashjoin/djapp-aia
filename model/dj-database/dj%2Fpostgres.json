@@ -3,5 +3,54 @@
     "djClassName": "org.dashjoin.service.SQLDatabase",
     "username": "postgres",
     "url": "jdbc:postgresql://postgres:5432/postgres",
-    "ID": "dj/postgres"
+    "ID": "dj/postgres",
+    "tables": {
+        "concept": {
+            "instanceLayout": {
+                "widget": "page",
+                "children": [
+                    {
+                        "text": "Metadata",
+                        "widget": "expansion",
+                        "children": [
+                            {
+                                "html": "${context}",
+                                "context-pointer": "context.js",
+                                "widget": "html"
+                            }
+                        ]
+                    },
+                    {
+                        "markdown": "${context}",
+                        "context": "value.markdown",
+                        "baseUrl": "/#/postgres/concept/",
+                        "linkIsId": true,
+                        "widget": "markdown"
+                    }
+                ]
+            },
+            "properties": {
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "ref": "dj/postgres/concept/id",
+                        "displayWith": "fk",
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "ref": "dj/postgres/tag/id",
+                        "displayWith": "fk",
+                        "type": "string"
+                    }
+                },
+                "type": {
+                    "ref": "dj/postgres/type/id",
+                    "displayWith": "fk"
+                }
+            }
+        }
+    }
 }

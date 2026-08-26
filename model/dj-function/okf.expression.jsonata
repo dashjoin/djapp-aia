@@ -14,12 +14,12 @@ $parse := function($url, $prefix) {
     $id := $substringAfter(url, $prefix ? $prefix : $url);
     $base := $substringBefore($id, $split($id, '/')[-1]);
     $res := $parseFrontmatter($openText(url));
-    $markdown := $replace($res.markdown, /\]\(([^\)]+\/)\)/, ']($1index.md)');
-    $markdown := $replace($markdown, /\]\(([^\/][^\)]+)\)/, '](' & $base & '$1)');
+    $markdown := $replace($res.markdown, /\]\(([^\):#]+\/)\)/, ']($1index.md)');
+    $markdown := $replace($markdown, /\]\(([^\/][^\):#]+)\)/, '](' & $base & '$1)');
     $merge([{
       'id': $id,
       'markdown': $markdown,
-      'links': [$match($markdown, /\]\(([^\)]+)\)/).groups[$not($contains(':'))]]
+      'links': [$match($markdown, /\]\(([^\):#]+)\)/).groups[$not($contains(':'))]]
     }, $res.frontmatter])
   )
 };

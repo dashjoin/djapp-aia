@@ -11,11 +11,15 @@ $process := function($url) {
 
 $parse := function($url, $prefix) {
   $ls($url & '/*.md').(
+    $id := $substringAfter(url, $prefix ? $prefix : $url);
+    $base := $substringBefore($id, $split($id, '/')[-1]);
     $res := $parseFrontmatter($openText(url));
+    $markdown := $replace($res.markdown, /\]\(([^\)]+\/)\)/, ']($1index.md)');
+    $markdown := $replace($markdown, /\]\(([^\/][^\)]+)\)/, '](' & $base & '$1)');
     $merge([{
-      'id': $substringAfter(url, $prefix ? $prefix : $url),
-      'markdown': $res.markdown,
-      'links': [$match($res.markdown, /\]\(([^\)]+)\)/).groups[$not($contains(':'))]]
+      'id': $id,
+      'markdown': $markdown,
+      'links': [$match($markdown, /\]\(([^\)]+)\)/).groups[$not($contains(':'))]]
     }, $res.frontmatter])
   )
 };

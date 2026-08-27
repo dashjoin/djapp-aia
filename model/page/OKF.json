@@ -1,0 +1,15 @@
+{
+    "ID": "OKF",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "title": "Chat with your OKF Wiki (requires a model that supports JSON mode - e.g. mistral or openai)",
+                "onChat-pointer": "onChat.jsonata",
+                "baseUrl": "/#/postgres/concept/",
+                "linkIsId": true,
+                "widget": "aichat"
+            }
+        ]
+    }
+}

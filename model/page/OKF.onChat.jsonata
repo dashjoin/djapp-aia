@@ -1,0 +1,18 @@
+$sse('aia', $append(
+    $count(messages) = 0 ? 
+        (
+            $x := $all('postgres', 'concept')[description].{'id':id, 'description':description, 'tags':$join(tags, ', ')};
+            $lib := $call('aia', {'messages': [{'role': 'user', 'content': 'your job is to recommend reading for this question: "' & newMessage.content & '". return a concise list of ids with decreasing importance from this library: ' & $string($x)}], 'response_format': { 
+                'properties': {
+                    'res': {
+                        'type': 'array'
+                    }
+                }
+            }}).choices.message.content ~> $parseJson($);
+            $context := $lib.res.$read('postgres', 'concept', $).('To reference this section use: [' & title & '](' & id & ')\n\n' & markdown) ~> $join('\n\n----------\n\n');
+            [{'role':'system', 'content': 'Answer any question in a concise way based on the context below (a list of markdowns). Cite sources with markdown links given at the start of every section\n' & $context}] 
+        )
+        : 
+        messages, 
+    newMessage
+))
